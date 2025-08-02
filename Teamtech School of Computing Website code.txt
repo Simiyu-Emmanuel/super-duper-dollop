@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teamtech School of Computing</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1A365D',secondary:'#00A3FF'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+scroll-behavior: smooth;
+}
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Poppins', sans-serif;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.hero-gradient {
+background: linear-gradient(90deg, rgba(26, 54, 93, 0.9) 0%, rgba(26, 54, 93, 0.7) 50%, rgba(26, 54, 93, 0.4) 100%);
+}
+.timeline-dot::before {
+content: '';
+position: absolute;
+width: 2px;
+height: 100%;
+background-color: #e5e7eb;
+left: 7px;
+top: 24px;
+}
+.custom-checkbox {
+appearance: none;
+-webkit-appearance: none;
+width: 20px;
+height: 20px;
+border: 2px solid #cbd5e1;
+border-radius: 4px;
+outline: none;
+cursor: pointer;
+position: relative;
+transition: all 0.2s;
+}
+.custom-checkbox:checked {
+background-color: #1A365D;
+border-color: #1A365D;
+}
+.custom-checkbox:checked::after {
+content: '';
+position: absolute;
+width: 5px;
+height: 10px;
+border: solid white;
+border-width: 0 2px 2px 0;
+top: 2px;
+left: 6px;
+transform: rotate(45deg);
+}
+.custom-switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.custom-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #cbd5e1;
+transition: .4s;
+border-radius: 24px;
+}
+.slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .slider {
+background-color: #1A365D;
+}
+input:checked + .slider:before {
+transform: translateX(24px);
+}
+.custom-range {
+-webkit-appearance: none;
+width: 100%;
+height: 6px;
+border-radius: 5px;
+background: #e5e7eb;
+outline: none;
+}
+.custom-range::-webkit-slider-thumb {
+-webkit-appearance: none;
+appearance: none;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #1A365D;
+cursor: pointer;
+}
+.custom-range::-moz-range-thumb {
+width: 18px;
+height: 18px;
+border-radius: 50%;
+background: #1A365D;
+cursor: pointer;
+border: none;
+}
+</style>
+</head>
+<body class="bg-white">
+<!-- Navigation -->
+<nav class="fixed top-0 left-0 w-full bg-white shadow-md z-50">
+<div class="container mx-auto px-6 py-3 flex justify-between items-center">
+<a href="#"><img src="https://static.readdy.ai/image/e042a495ac57388d1c624df0ae1e8547/b0203d166ae92414b79195a12368353e.png" alt="TeamTech Enterprise Logo" class="h-12"></a>
+<div class="hidden md:flex space-x-8">
+<a href="#home" class="text-gray-700 hover:text-primary font-medium transition-colors">Home</a>
+<a href="#about" class="text-gray-700 hover:text-primary font-medium transition-colors">About Us</a>
+<a href="#courses" class="text-gray-700 hover:text-primary font-medium transition-colors">Courses</a>
+<a href="#admissions" class="text-gray-700 hover:text-primary font-medium transition-colors">Admissions</a>
+<a href="#student-life" class="text-gray-700 hover:text-primary font-medium transition-colors">Student Life</a>
+<a href="#contact" class="text-gray-700 hover:text-primary font-medium transition-colors">Contact</a>
+</div>
+<button class="bg-primary text-white px-6 py-2 !rounded-button hidden md:block whitespace-nowrap">Apply Now</button>
+<div class="md:hidden w-10 h-10 flex items-center justify-center">
+<i class="ri-menu-line ri-lg"></i>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section id="home" class="relative h-screen w-full overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Kenyan%20university%20students%20in%20a%20modern%20computer%20lab%2C%20young%20African%20students%20coding%20and%20learning%20technology%2C%20bright%20and%20professional%20educational%20environment%2C%20clean%20modern%20interior%20with%20computers%2C%20natural%20lighting%20highlighting%20dark%20skin%20tones%2C%20authentic%20Kenyan%20educational%20setting&width=1920&height=1080&seq=1&orientation=landscape'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 hero-gradient"></div>
+<div class="container mx-auto px-6 h-full flex items-center w-full">
+<div class="text-white max-w-2xl mt-16">
+<h1 class="text-5xl md:text-6xl font-bold mb-6">Shape Kenya's Digital Future</h1>
+<p class="text-xl mb-8">Join Teamtech School of Computing in Eldoret and gain world-class tech skills. Our innovative programs are designed to empower Kenya's next generation of tech leaders.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary text-white px-8 py-3 !rounded-button font-semibold whitespace-nowrap">Apply Now</button>
+<button class="bg-transparent border-2 border-white text-white px-8 py-3 !rounded-button font-semibold whitespace-nowrap">Explore Courses</button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+<div class="w-10 h-10 flex items-center justify-center text-white">
+<i class="ri-arrow-down-line ri-lg"></i>
+</div>
+</div>
+</section>
+<!-- About Section -->
+<section id="about" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">About Us</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Learn about our mission, vision, and the people who make Teamtech School of Computing a leader in technology education.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+<div>
+<img src="https://readdy.ai/api/search-image?query=Modern%20Kenyan%20university%20building%20in%20Nairobi%2C%20contemporary%20African%20architecture%2C%20educational%20institution%20exterior%2C%20palm%20trees%20and%20local%20vegetation%2C%20students%20walking%20on%20campus%2C%20clean%20professional%20composition%2C%20sunny%20day&width=600&height=400&seq=2&orientation=landscape" alt="Teamtech School Campus" class="rounded-lg shadow-lg w-full h-auto object-cover">
+</div>
+<div>
+<h3 class="text-3xl font-semibold text-primary mb-4">Our Mission</h3>
+<div class="bg-white p-6 rounded-lg shadow-md border-l-4 border-secondary mb-6">
+<p class="text-gray-700 italic">To empower students with cutting-edge computing skills and knowledge, fostering innovation and excellence in technology education that prepares graduates to lead in the digital transformation of industries worldwide.</p>
+</div>
+<h3 class="text-3xl font-semibold text-primary mb-4">Our Vision</h3>
+<p class="text-gray-700 mb-6">To be recognized globally as a premier institution for computing education, research, and innovation, creating technology leaders who drive positive change in society.</p>
+<div class="flex flex-col gap-4">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-award-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Excellence</h4>
+<p class="text-gray-600">We strive for excellence in all aspects of education and research.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-lightbulb-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Innovation</h4>
+<p class="text-gray-600">We foster creativity and innovative thinking in technology.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-team-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Inclusivity</h4>
+<p class="text-gray-600">We embrace diversity and create an inclusive learning environment.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mb-20">
+<h3 class="text-3xl font-semibold text-primary mb-8 text-center">Our Leadership</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Kenyan%20male%20academic%20leader%20in%20his%2040s%2C%20wearing%20formal%20attire%2C%20warm%20confident%20expression%2C%20office%20setting%20with%20modern%20tech%20background&width=300&height=300&seq=3&orientation=squarish" alt="Emmanuel Simiyu Oduor" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-semibold text-gray-800">Emmanuel Simiyu Oduor</h4>
+<p class="text-secondary font-medium">Principal</p>
+<p class="text-gray-600 mt-2 text-sm">Ph.D. in Computer Science from University of Nairobi, with extensive experience in African tech education.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Kenyan%20female%20academic%20in%20her%2030s%2C%20elegant%20professional%20attire%2C%20warm%20smile%2C%20office%20background%20with%20tech%20awards%2C%20high-quality%20portrait&width=300&height=300&seq=4&orientation=squarish" alt="Favour Nasimiyu" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-semibold text-gray-800">Favour Nasimiyu</h4>
+<p class="text-secondary font-medium">Deputy Principal, Academics</p>
+<p class="text-gray-600 mt-2 text-sm">Leading researcher in digital innovation, former head of computer science at Strathmore University.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Kenyan%20male%20tech%20leader%20in%20his%2030s%2C%20business%20professional%20attire%2C%20confident%20expression%2C%20modern%20office%20setting%2C%20high-quality%20portrait&width=300&height=300&seq=5&orientation=squarish" alt="Arnold Were" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-semibold text-gray-800">Arnold Were</h4>
+<p class="text-secondary font-medium">Head of Innovation</p>
+<p class="text-gray-600 mt-2 text-sm">Pioneer in Kenyan tech innovation with strong ties to Silicon Savannah ecosystem.</p>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<img src="https://readdy.ai/api/search-image?query=Professional%20headshot%20of%20a%20Kenyan%20male%20tech%20executive%20in%20his%2030s%2C%20modern%20professional%20attire%2C%20engaging%20smile%2C%20tech%20office%20background%2C%20high-quality%20portrait&width=300&height=300&seq=6&orientation=squarish" alt="Ford Olindo" class="w-full h-64 object-cover object-top">
+<div class="p-4">
+<h4 class="font-semibold text-gray-800">Ford Olindo</h4>
+<p class="text-secondary font-medium">Director of Industry Partnerships</p>
+<p class="text-gray-600 mt-2 text-sm">Former tech executive with extensive networks across East African tech industry.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-3xl font-semibold text-primary mb-8 text-center">Our History</h3>
+<div class="relative pl-8">
+<div class="timeline-dot">
+<div class="mb-12 relative">
+<div class="absolute -left-8 w-4 h-4 bg-secondary rounded-full"></div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h4 class="font-semibold text-gray-800">2020 - Foundation</h4>
+<p class="text-gray-600 mt-2">Teamtech School of Computing was founded with a mission to provide cutting-edge technology education.</p>
+</div>
+</div>
+<div class="mb-12 relative">
+<div class="absolute -left-8 w-4 h-4 bg-secondary rounded-full"></div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h4 class="font-semibold text-gray-800">2021 - Initial Growth</h4>
+<p class="text-gray-600 mt-2">Launched first specialized programs in software development and established industry partnerships.</p>
+</div>
+</div>
+<div class="mb-12 relative">
+<div class="absolute -left-8 w-4 h-4 bg-secondary rounded-full"></div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h4 class="font-semibold text-gray-800">2022 - Expansion</h4>
+<p class="text-gray-600 mt-2">Expanded curriculum to include specialized programs in cybersecurity and data science.</p>
+</div>
+</div>
+<div class="mb-12 relative">
+<div class="absolute -left-8 w-4 h-4 bg-secondary rounded-full"></div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h4 class="font-semibold text-gray-800">2023 - Research Center</h4>
+<p class="text-gray-600 mt-2">Established the Center for Advanced Computing Research, focusing on AI and machine learning.</p>
+</div>
+</div>
+<div class="relative">
+<div class="absolute -left-8 w-4 h-4 bg-secondary rounded-full"></div>
+<div class="bg-white p-6 rounded-lg shadow-md">
+<h4 class="font-semibold text-gray-800">2024 - Global Recognition</h4>
+<p class="text-gray-600 mt-2">Achieved top rankings in computing education and established international partnerships.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Courses Section -->
+<section id="courses" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">Our Programs</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Discover our comprehensive range of programs designed to prepare you for success in the fast-evolving tech industry.</p>
+</div>
+<div class="mb-8 flex justify-center">
+<div class="inline-flex bg-gray-100 rounded-full p-1" id="program-filters">
+<button class="px-6 py-2 rounded-full bg-primary text-white whitespace-nowrap" data-filter="all">All Programs</button>
+<button class="px-6 py-2 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap" data-filter="undergraduate">Undergraduate</button>
+<button class="px-6 py-2 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap" data-filter="graduate">Graduate</button>
+<button class="px-6 py-2 rounded-full text-gray-700 hover:bg-gray-200 whitespace-nowrap" data-filter="certificate">Certificate</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="program-cards">
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:transform hover:scale-105" data-program-type="undergraduate">
+<div class="h-48 bg-primary flex items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-white">
+<i class="ri-code-box-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-xl text-gray-800 mb-2">Software Development</h3>
+<p class="text-gray-600 mb-4">Learn to build robust, scalable applications using modern programming languages and frameworks.</p>
+<div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+<span><i class="ri-time-line mr-1"></i> 4 years</span>
+<span><i class="ri-calendar-line mr-1"></i> Sept 2025</span>
+</div>
+<button class="w-full bg-primary text-white py-2 !rounded-button font-medium whitespace-nowrap">Apply Now</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:transform hover:scale-105" data-program-type="undergraduate">
+<div class="h-48 bg-primary flex items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-white">
+<i class="ri-shield-keyhole-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-xl text-gray-800 mb-2">Cybersecurity</h3>
+<div class="mb-2">
+<span class="bg-secondary bg-opacity-10 text-secondary text-sm px-3 py-1 rounded-full">Undergraduate</span>
+</div>
+<p class="text-gray-600 mb-4">Develop skills to protect systems and networks from digital attacks and security breaches.</p>
+<div class="space-y-2 mb-4 text-sm text-gray-500">
+<div><i class="ri-time-line mr-1"></i> Duration: 4 years</div>
+<div><i class="ri-calendar-line mr-1"></i> Start: Sept 2025</div>
+<div><i class="ri-graduation-cap-line mr-1"></i> Degree: Bachelor of Science</div>
+<div><i class="ri-file-list-line mr-1"></i> Requirements: High School Diploma</div>
+</div>
+<button class="w-full bg-primary text-white py-2 !rounded-button font-medium whitespace-nowrap">Apply Now</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:transform hover:scale-105">
+<div class="h-48 bg-primary flex items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-white">
+<i class="ri-database-2-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-xl text-gray-800 mb-2">Data Science</h3>
+<p class="text-gray-600 mb-4">Master the art of extracting insights from data using statistical analysis and machine learning.</p>
+<div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+<span><i class="ri-time-line mr-1"></i> 2 years</span>
+<span><i class="ri-calendar-line mr-1"></i> Jan 2026</span>
+</div>
+<button class="w-full bg-primary text-white py-2 !rounded-button font-medium whitespace-nowrap">Apply Now</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:transform hover:scale-105">
+<div class="h-48 bg-primary flex items-center justify-center">
+<div class="w-16 h-16 flex items-center justify-center text-white">
+<i class="ri-customer-service-2-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-semibold text-xl text-gray-800 mb-2">IT Support</h3>
+<p class="text-gray-600 mb-4">Gain practical skills in troubleshooting, network management, and technical support.</p>
+<div class="flex justify-between items-center text-sm text-gray-500 mb-4">
+<span><i class="ri-time-line mr-1"></i> 2 years</span>
+<span><i class="ri-calendar-line mr-1"></i> Sept 2025</span>
+</div>
+<button class="w-full bg-primary text-white py-2 !rounded-button font-medium whitespace-nowrap">Apply Now</button>
+</div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="bg-white border border-primary text-primary px-8 py-3 !rounded-button font-semibold hover:bg-primary hover:text-white transition-colors whitespace-nowrap">View All Programs</button>
+</div>
+</div>
+</section>
+<!-- Admissions Section -->
+<section id="admissions" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">Admissions</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Your journey to becoming a tech professional starts here. Learn about our admissions process and requirements.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 mb-16">
+<div>
+<h3 class="text-2xl font-semibold text-primary mb-6">Application Process</h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full font-bold flex-shrink-0">1</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Submit Application</h4>
+<p class="text-gray-600">Complete the online application form with your personal information and academic history.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full font-bold flex-shrink-0">2</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Entrance Examination</h4>
+<p class="text-gray-600">Take our aptitude test to assess your logical reasoning and problem-solving skills.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full font-bold flex-shrink-0">3</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Interview</h4>
+<p class="text-gray-600">Participate in an interview with our admissions committee to discuss your goals and aspirations.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full font-bold flex-shrink-0">4</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Decision & Enrollment</h4>
+<p class="text-gray-600">Receive your admission decision and complete the enrollment process if accepted.</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-primary mb-6">Important Dates</h3>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="p-6 border-b">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-gray-800">Fall 2025 Semester</h4>
+<span class="text-sm bg-secondary text-white px-3 py-1 rounded-full">Current</span>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<div class="flex justify-between">
+<span class="text-gray-600">Application Opens</span>
+<span class="font-medium">November 1, 2024</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Early Decision Deadline</span>
+<span class="font-medium">January 15, 2025</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Regular Decision Deadline</span>
+<span class="font-medium">March 31, 2025</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Admission Decisions</span>
+<span class="font-medium">May 15, 2025</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Enrollment Deadline</span>
+<span class="font-medium">June 30, 2025</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Orientation Week</span>
+<span class="font-medium">August 25-29, 2025</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-600">Classes Begin</span>
+<span class="font-medium">September 1, 2025</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<h3 class="text-2xl font-semibold text-primary mb-6">Requirements</h3>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Completed application form</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">High school diploma or equivalent</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Official transcripts</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Standardized test scores (SAT/ACT)</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Personal statement</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Two letters of recommendation</span>
+</div>
+<div class="flex items-center gap-3">
+<input type="checkbox" class="custom-checkbox" checked disabled>
+<span class="text-gray-700">Application fee ($75)</span>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-primary mb-6">Application Forms</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-white rounded-lg shadow-md p-6 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-red-100 text-red-500 rounded-full flex-shrink-0">
+<i class="ri-file-pdf-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Undergraduate Application</h4>
+<p class="text-gray-500 text-sm">PDF, 2.3 MB</p>
+</div>
+</div>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Download</span>
+<i class="ri-download-line"></i>
+</button>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-blue-100 text-blue-500 rounded-full flex-shrink-0">
+<i class="ri-file-word-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Recommendation Letter Template</h4>
+<p class="text-gray-500 text-sm">DOCX, 0.5 MB</p>
+</div>
+</div>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Download</span>
+<i class="ri-download-line"></i>
+</button>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6 flex justify-between items-center">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-green-100 text-green-500 rounded-full flex-shrink-0">
+<i class="ri-file-excel-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800">Financial Aid Application</h4>
+<p class="text-gray-500 text-sm">XLSX, 1.1 MB</p>
+</div>
+</div>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Download</span>
+<i class="ri-download-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Student Life Section -->
+<section id="student-life" class="py-20">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">Student Life</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Experience a vibrant campus community with state-of-the-art facilities, diverse clubs, and engaging activities.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+<div class="relative group overflow-hidden rounded-lg shadow-md h-64">
+<img src="https://readdy.ai/api/search-image?query=African%20university%20computer%20lab%20with%20young%20Kenyan%20students%20working%20on%20modern%20computers%2C%20bright%20natural%20lighting%2C%20contemporary%20tech%20facility%20with%20local%20artwork%2C%20professional%20educational%20environment%20with%20African%20design%20elements&width=600&height=400&seq=7&orientation=landscape" alt="Computer Labs" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-white font-semibold text-xl mb-2">State-of-the-Art Labs</h3>
+<p class="text-white text-sm">Access cutting-edge technology in our specialized computing labs.</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-lg shadow-md h-64">
+<img src="https://readdy.ai/api/search-image?query=Modern%20African%20university%20library%20with%20Kenyan%20students%20studying%2C%20contemporary%20study%20space%20with%20local%20architectural%20elements%2C%20natural%20lighting%2C%20wooden%20bookshelves%20and%20computer%20stations%2C%20African%20art%20on%20walls&width=600&height=400&seq=8&orientation=landscape" alt="Library" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-white font-semibold text-xl mb-2">Modern Library</h3>
+<p class="text-white text-sm">A quiet space for study with extensive digital and print resources.</p>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-lg shadow-md h-64">
+<img src="https://readdy.ai/api/search-image?query=African%20university%20student%20lounge%20with%20young%20Kenyan%20students%20socializing%2C%20modern%20recreation%20area%20with%20traditional%20African%20design%20elements%2C%20bright%20natural%20lighting%2C%20colorful%20African%20textiles%20and%20artwork%2C%20casual%20educational%20environment&width=600&height=400&seq=9&orientation=landscape" alt="Student Lounge" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+<div class="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-white font-semibold text-xl mb-2">Student Lounges</h3>
+<p class="text-white text-sm">Comfortable spaces to relax, collaborate, and socialize between classes.</p>
+</div>
+</div>
+</div>
+<div class="mb-16">
+<h3 class="text-2xl font-semibold text-primary mb-8 text-center">Student Clubs & Activities</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mb-4">
+<i class="ri-code-line"></i>
+</div>
+<h4 class="font-semibold text-gray-800 mb-2">Coding Club</h4>
+<p class="text-gray-600">Weekly coding challenges, hackathons, and collaborative projects.</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mb-4">
+<i class="ri-robot-line"></i>
+</div>
+<h4 class="font-semibold text-gray-800 mb-2">Robotics Society</h4>
+<p class="text-gray-600">Design, build, and program robots for competitions and exhibitions.</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mb-4">
+<i class="ri-gamepad-line"></i>
+</div>
+<h4 class="font-semibold text-gray-800 mb-2">Game Development</h4>
+<p class="text-gray-600">Create video games using industry-standard tools and techniques.</p>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-full mb-4">
+<i class="ri-women-line"></i>
+</div>
+<h4 class="font-semibold text-gray-800 mb-2">Women in Tech</h4>
+<p class="text-gray-600">Support network promoting gender diversity in computing fields.</p>
+</div>
+</div>
+</div>
+<div class="mb-16">
+<h3 class="text-2xl font-semibold text-primary mb-8 text-center">Student Testimonials</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Headshot%20of%20a%20young%20Kenyan%20female%20student%2C%20casual%20professional%20attire%2C%20natural%20hair%2C%20friendly%20smile%2C%20university%20setting%20background%2C%20high-quality%20portrait&width=100&height=100&seq=10&orientation=squarish" alt="Joy Kamau" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-semibold text-gray-800">Joy Kamau</h4>
+<p class="text-gray-500 text-sm">Software Development, Class of 2024</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The practical training at Teamtech has been exceptional. The lecturers bring valuable industry experience from Kenya's growing tech sector to our classes."</p>
+<div class="flex mt-4 text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Headshot%20of%20a%20young%20Kenyan%20male%20student%2C%20smart%20casual%20attire%2C%20warm%20confident%20expression%2C%20university%20campus%20background%2C%20high-quality%20portrait&width=100&height=100&seq=11&orientation=squarish" alt="Brian Kiprop" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-semibold text-gray-800">Brian Kiprop</h4>
+<p class="text-gray-500 text-sm">Cybersecurity, Class of 2023</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The cybersecurity program at Teamtech opened doors for me. I landed an internship at Safaricom, Kenya's leading tech company, during my second year."</p>
+<div class="flex mt-4 text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-half-fill"></i>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md p-6">
+<div class="flex items-center mb-4">
+<img src="https://readdy.ai/api/search-image?query=Headshot%20of%20a%20young%20Kenyan%20female%20student%2C%20modern%20professional%20attire%2C%20braided%20hair%2C%20bright%20engaging%20smile%2C%20university%20library%20background%2C%20high-quality%20portrait&width=100&height=100&seq=12&orientation=squarish" alt="Amina Hassan" class="w-12 h-12 rounded-full object-cover mr-4">
+<div>
+<h4 class="font-semibold text-gray-800">Amina Hassan</h4>
+<p class="text-gray-500 text-sm">Data Science, Class of 2025</p>
+</div>
+</div>
+<p class="text-gray-600 italic">"The community at Teamtech embodies Ubuntu spirit. The support from lecturers and fellow students has been amazing, and we're all working together to advance tech innovation in Kenya."</p>
+<div class="flex mt-4 text-yellow-400">
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+<i class="ri-star-fill"></i>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-2xl font-semibold text-primary mb-8 text-center">Upcoming Events</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary text-white p-4 flex justify-between items-center">
+<h4 class="font-semibold">Annual Hackathon</h4>
+<span class="text-sm">May 15-17, 2025</span>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">A 48-hour coding marathon where students collaborate to build innovative solutions to real-world problems.</p>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Learn More</span>
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary text-white p-4 flex justify-between items-center">
+<h4 class="font-semibold">Tech Career Fair</h4>
+<span class="text-sm">June 10, 2025</span>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">Connect with leading tech companies and explore internship and job opportunities in the computing industry.</p>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Learn More</span>
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden">
+<div class="bg-primary text-white p-4 flex justify-between items-center">
+<h4 class="font-semibold">AI Workshop Series</h4>
+<span class="text-sm">July 5-25, 2025</span>
+</div>
+<div class="p-6">
+<p class="text-gray-600 mb-4">A three-week workshop series exploring the fundamentals and applications of artificial intelligence.</p>
+<button class="text-primary flex items-center gap-1 whitespace-nowrap">
+<span>Learn More</span>
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section id="contact" class="py-20 bg-gray-50">
+<div class="container mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="text-4xl font-bold text-primary mb-4">Contact Us</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Have questions about our programs or admissions process? Get in touch with us.</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12">
+<div>
+<form class="bg-white rounded-lg shadow-md p-8">
+<h3 class="text-2xl font-semibold text-primary mb-6">Send Us a Message</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+<div>
+<label for="firstName" class="block text-gray-700 mb-2">First Name</label>
+<input type="text" id="firstName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div>
+<label for="lastName" class="block text-gray-700 mb-2">Last Name</label>
+<input type="text" id="lastName" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+</div>
+<div class="mb-6">
+<label for="email" class="block text-gray-700 mb-2">Email Address</label>
+<input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+</div>
+<div class="mb-6">
+<label for="subject" class="block text-gray-700 mb-2">Subject</label>
+<select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent pr-8">
+<option value="" selected disabled>Select a subject</option>
+<option value="admissions">Admissions Inquiry</option>
+<option value="programs">Program Information</option>
+<option value="financial">Financial Aid</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="mb-6">
+<label for="message" class="block text-gray-700 mb-2">Message</label>
+<textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"></textarea>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-3 !rounded-button font-semibold whitespace-nowrap">Send Message</button>
+</form>
+</div>
+<div>
+<div class="bg-white rounded-lg shadow-md p-8 mb-8">
+<h3 class="text-2xl font-semibold text-primary mb-6">Contact Information</h3>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-map-pin-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Address</h4>
+<p class="text-gray-600">Eldoret Town<br>Uasin Gishu County<br>Kenya</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-phone-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Phone</h4>
+<p class="text-gray-600">Main: +254 759 254 798<br>Admissions: +254 700 570 533</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-mail-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Email</h4>
+<p class="text-gray-600">info@teamtechschool.ac.ke<br>admissions@teamtechschool.ac.ke</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary text-white rounded-full flex-shrink-0">
+<i class="ri-time-line"></i>
+</div>
+<div>
+<h4 class="font-semibold text-gray-800 mb-1">Office Hours</h4>
+<p class="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM<br>Saturday: 9:00 AM - 1:00 PM<br>Sunday: Closed</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-md overflow-hidden h-64">
+<img src="https://readdy.ai/api/search-image?query=Aerial%20view%20of%20Eldoret%20city%2C%20Kenya%2C%20showing%20urban%20layout%20with%20modern%20buildings%2C%20tree-lined%20streets%2C%20and%20surrounding%20landscapes%2C%20clear%20sunny%20day%20with%20blue%20skies%2C%20high-quality%20satellite%20or%20drone%20perspective&width=1280&height=720&seq=13&orientation=landscape" alt="Campus Map" class="w-full h-full object-cover">
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-white pt-16 pb-8">
+<div class="container mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+<div>
+<img src="https://static.readdy.ai/image/e042a495ac57388d1c624df0ae1e8547/b0203d166ae92414b79195a12368353e.png" alt="TeamTech Enterprise Logo" class="h-12 mb-6">
+<p class="text-gray-300 mb-6">Empowering students with cutting-edge computing skills and knowledge for the digital future.</p>
+<div class="flex space-x-4">
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors">
+<i class="ri-facebook-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors">
+<i class="ri-twitter-x-fill text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors">
+<i class="ri-instagram-line text-white"></i>
+</a>
+<a href="#" class="w-10 h-10 flex items-center justify-center bg-white bg-opacity-10 rounded-full hover:bg-opacity-20 transition-colors">
+<i class="ri-linkedin-fill text-white"></i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+<ul class="space-y-3">
+<li><a href="#home" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+<li><a href="#about" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+<li><a href="#courses" class="text-gray-300 hover:text-white transition-colors">Courses</a></li>
+<li><a href="#admissions" class="text-gray-300 hover:text-white transition-colors">Admissions</a></li>
+<li><a href="#student-life" class="text-gray-300 hover:text-white transition-colors">Student Life</a></li>
+<li><a href="#contact" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Resources</h4>
+<ul class="space-y-3">
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Academic Calendar</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Library</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Career Services</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Student Portal</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Faculty Directory</a></li>
+<li><a href="#" class="text-gray-300 hover:text-white transition-colors">Campus Map</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-lg font-semibold mb-6">Subscribe to Our Newsletter</h4>
+<p class="text-gray-300 mb-4">Stay updated with the latest news, events, and program information.</p>
+<form class="mb-4">
+<div class="flex">
+<input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-800">
+<button type="submit" class="bg-secondary text-white px-4 py-2 rounded-r whitespace-nowrap">Subscribe</button>
+</div>
+</form>
+<p class="text-gray-300 text-sm">By subscribing, you agree to our Privacy Policy and consent to receive updates from our school.</p>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-300 text-sm mb-4 md:mb-0">&copy; 2025 Teamtech School of Computing. All rights reserved.</p>
+<div class="flex space-x-6">
+<a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">Privacy Policy</a>
+<a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">Terms of Service</a>
+<a href="#" class="text-gray-300 hover:text-white text-sm transition-colors">Cookie Policy</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+const programFilters = document.getElementById('program-filters');
+const programCards = document.getElementById('program-cards');
+if (programFilters && programCards) {
+    const filterButtons = programFilters.querySelectorAll('button');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('text-gray-700', 'hover:bg-gray-200');
+            });
+            
+            // Add active class to clicked button
+            button.classList.remove('text-gray-700', 'hover:bg-gray-200');
+            button.classList.add('bg-primary', 'text-white');
+            
+            const filterValue = button.getAttribute('data-filter');
+            
+            // Show/hide cards based on filter
+            const cards = programCards.children;
+            Array.from(cards).forEach(card => {
+                if (filterValue === 'all' || card.getAttribute('data-program-type') === filterValue) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+}
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+const targetElement = document.querySelector(targetId);
+if (targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+}
+});
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Form validation
+const contactForm = document.querySelector('form');
+if (contactForm) {
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const emailInput = document.getElementById('email');
+const messageInput = document.getElementById('message');
+let isValid = true;
+if (!emailInput.value || !emailInput.value.includes('@')) {
+emailInput.classList.add('border-red-500');
+isValid = false;
+} else {
+emailInput.classList.remove('border-red-500');
+}
+if (!messageInput.value) {
+messageInput.classList.add('border-red-500');
+isValid = false;
+} else {
+messageInput.classList.remove('border-red-500');
+}
+if (isValid) {
+alert('Thank you for your message! We will get back to you soon.');
+contactForm.reset();
+}
+});
+}
+});
+</script>
+</body>
+</html>
